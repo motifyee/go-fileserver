@@ -1,4 +1,4 @@
-module github.com/motifyee/fileserver
+module github.com/motifyee/go-fileserver
 
 go 1.21.6
 
