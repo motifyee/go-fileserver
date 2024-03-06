@@ -43,6 +43,7 @@ func main() {
 
 func uploadFile(w http.ResponseWriter, r *http.Request) {
 
+	fmt.Println("uploadFile")
 	r.ParseMultipartForm(10 << 20) // 10 MB max upload files
 
 	file, handler, err := r.FormFile("file")
