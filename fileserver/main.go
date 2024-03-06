@@ -37,7 +37,7 @@ func main() {
 
 	http.HandleFunc("/inc", incCounter)
 
-	log.Fatal(http.ListenAndServe(":8082", nil))
+	log.Fatal(http.ListenAndServe(":8989", nil))
 
 }
 

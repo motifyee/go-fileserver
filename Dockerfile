@@ -8,8 +8,8 @@ RUN eport GO111MODULE=on
 RUN go get https://github.com/motifyee/go-fileserver/master
 RUN cd /build && git clone https://github.com/motifyee/go-fileserver.git
 
-RUN cd /build/api/main && go build
+RUN cd /build/gowasm/fileserver && go build
 
-EXPOSE 8080
+EXPOSE 8989
 
-ENTRYPOINT [ "/build/api/main/main" ]
+ENTRYPOINT [ "/build/gowasm/fileserver" ]
