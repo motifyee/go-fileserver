@@ -18,9 +18,9 @@ func main() {
 		http.ServeFile(w, r, "files/"+r.URL.Path[len("/files/"):])
 	})
 	http.HandleFunc("/files/list", func(w http.ResponseWriter, r *http.Request) {
-		entries, err := os.ReadDir("files")
+		entries, err := os.ReadDir("./files")
 		if err != nil {
-			jsonResp(w, "error", "Error listing files\n"+err.Error())
+			jsonResp(w, "error", "Error listing files: "+err.Error())
 
 			return
 		}
@@ -106,16 +106,6 @@ func jsonResp(w http.ResponseWriter, status string, message interface{}) {
 	// fmt.Println(w, string(jsonResp))
 	w.WriteHeader(http.StatusOK)
 	w.Write(jsonR)
-}
-
-func marshal(data interface{}) (string, error) {
-	jsonR, err := json.Marshal(data)
-
-	if err != nil {
-		return "", err
-	}
-
-	return string(jsonR), nil
 }
 
 func createUUID() (string, error) {
